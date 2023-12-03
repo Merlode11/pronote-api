@@ -44,6 +44,10 @@ async function request(session, name, content = {})
         return JSON.parse(decipher(session, result.donneesSec, { compress: true }));
     }
 
+    if (result.donneesSec._Signature_?.Erreur) {
+        result.donneesSec.donnes.error = result.donneesSec._Signature_.Erreur;
+    }
+
     return result.donneesSec;
 }
 

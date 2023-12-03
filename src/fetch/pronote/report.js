@@ -24,7 +24,6 @@ async function getReport(session, user, period)
             message: report.Message
         }
     }
-
     const globalComments = parse(report.ObjetListeAppreciations).ListeAppreciations.V.map(comment => ({
         text: comment.L,
         id: comment.N,
